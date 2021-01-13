@@ -9,6 +9,11 @@ pixel = neopixel.NeoPixel(Pin(5), 32)
 index = pixel.n
 
 
-for i in range(index):
-    pixel[i] = (10, 0, 0)
-    pixel.write()  
+def ring(startLed, red, green, blue):
+    for i in range(startLed, startLed + 16):
+        pixel[i] = (red, green, blue)
+        pixel.write()
+
+
+ring(0, 10, 0, 0)
+ring(16, 10, 0, 10)
